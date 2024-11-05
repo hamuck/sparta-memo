@@ -19,9 +19,13 @@ public class Memo {
         this.contents = content;
     }
 
-    public void updateMemo(MemoRequestDto dto) {
-        this.title = dto.getTitle();
-        this.contents = dto.getContents();
+    public void update(String title, String contents) {
+        this.title = title;
+        this.contents = contents;
+    }
+
+    public void updateTitle(String title){
+        this.title = title;
     }
 
 }

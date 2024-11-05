@@ -35,4 +35,32 @@ public class MemoController {
         return memoService.findAllMemos();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<MemoResponseDto> fineMemoById(
+            @PathVariable Long id){
+        return new ResponseEntity<>(memoService.findMemoById(id),HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<MemoResponseDto> updateMemo(
+            @PathVariable Long id,
+            @RequestBody MemoRequestDto requestDto
+    ){
+        return new ResponseEntity<>(memoService.updateMemo(id,requestDto.getTitle(),requestDto.getContents()),HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<MemoResponseDto> updateTitle(
+            @PathVariable Long id,
+            @RequestBody MemoRequestDto requestDto
+    ){
+        return new ResponseEntity<>(memoService.updateTitle(id, requestDto.getTitle(), requestDto.getContents()),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMemo(@PathVariable Long id){
+        memoService.deleteMemo(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

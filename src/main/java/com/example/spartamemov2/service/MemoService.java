@@ -8,4 +8,8 @@ import java.util.List;
 public interface MemoService {
     MemoResponseDto saveMemo(MemoRequestDto memoRequestDto);
     List<MemoResponseDto> findAllMemos();
+    MemoResponseDto findMemoById(Long id);
+    MemoResponseDto updateMemo(Long id, String title, String contents);
+    MemoResponseDto updateTitle(Long id, String title, String contents);
+    void deleteMemo(Long id);
 }

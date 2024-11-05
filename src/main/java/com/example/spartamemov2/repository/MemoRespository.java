@@ -8,4 +8,6 @@ import java.util.List;
 public interface MemoRespository {
     Memo saveMemo(Memo memo);
     List<MemoResponseDto> findAllMemos();
+    Memo findMemoById (Long id);
+    void deleteMemo(Long id);
 }
